@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <style type="text/css">
+        body {
+            margin-top: 40px;
+            background-color: #34495c;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .top {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #5BFEC8;
+        }
+
+        .breadcrumb {
+            background-color: #34495c;
+        }
+
+        .top-right,
+        .top-left {
+            float: left;
+        }
+
+        .top-right {
+            margin-top: 60px;
+            margin-left: 80px;
+        }
+
+        .progress {
+            background-color: #34495c;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            height: 10px;
+            width: 90%;
+        }
+
+        .table {
+            width: 70%;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.6);
+            border-collapse: collapse;
+        }
+
+        .config {
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .table td {
+            width: 50%;
+            height: 40px;
+            /*background-color: #34495c !important;*/
+        }
+
+        .tr1 {
+            background-color: #5D6D7E !important;
+        }
+
+        .progress-bar {
+            background: -webkit-linear-gradient(left, rgba(11, 219, 164, 0.2) 0%, rgba(36, 102, 207, 0.2) 100%);
+        }
+        .modify a, .commit a, .modal-footer a{
+          color: #ffffff;
+          text-decoration: none;
+        }
+        .hide{
+          display: none;
+        }
+        .con{
+          width: 85%;
+        }
+        .ltd{
+          background-color: #34495c;
+          border: none;
+          caret-color: #5BFEC8;
+          width: 100%;
+          color: rgba(255, 255, 255, 0.6);
+        }
+        .modal-body, .modal-footer, .modal-header{
+         padding: 6px;
+         border: 0.8px solid #eee;
+        }
+        .modal-body, .modal-footer{
+        background-color: #5D6D7E;
+        border-top: none;
+        }
+        #mfooter{
+        margin-right: 43%;
+        }
+        .modal.fade:not(.show).right .modal-dialog {
+        -webkit-transform: translate3d(125%, 0, 0);
+        transform: translate3d(125%, 0, 0);
+        }
+        .modal{
+          top:40%;
+          outline: none;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+        outline: none;
+        }
+        #dselect{
+          margin-left: 15.5%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="div1">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" aria-current="page">Home&nbsp;</li>
+                        <li class="breadcrumb-item active" aria-current="page">&nbsp;Dashboard</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>System time</h2>
+                        <p id="displaytime"></p>
+                    </div>
+                    <div class="col-12 mt-5">
+                        <h2>Up time</h2>
+                        <p id="demo"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Load average</h2>
+                        <p class="mt-4">1 min</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div><span height="100%" class="badge ml-4">0.01</span>
+                        </div>
+                        <p class="mt-4">5 min</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div><span class="badge ml-4">0.08</span>
+                        </div>
+
+                        <p class="mt-4">15 min</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div><span class="badge ml-4">0.04</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div class="bottom col-12 mt-5 mb-5">
+        <table class="table table table-bordered" width="50%" cellpadding="0" cellspacing="0">
+            <thead class="thead-light">
+                <tr>
+                    <th  class="config p-2" data-editable = "true" scope="col" colspan="2">PHP Configuration</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr style="background: #5D6D7E;">
+                        <td>Option</td>
+                        <td>Value</td>
+                    </tr>
+                    <tr>
+                        <td>Total memory</td>
+                        <td id="TotalMemory">16026 MiB [16410124 KiB]</td>
+                    </tr>
+                    <tr>
+                        <td>Free memory</td>
+                        <td id="tda">13398 MiB [13719632 KiB]</td>
+                    </tr>
+                    <tr>
+                        <td id = 'tdb'>Configured PHP Memory Limit</td>
+                        <td id = 'tdc'><input class = 'ltd' value ="111 MiB" type='text' id='TempInput' disabled></td>
+                    </tr>
+                </tbody>
+        </table>
+        <div class = "con mt-2">
+
+        <div class = "modify  float-right">
+        <a id = "edit" href = "#">Edit</a>
+        </div>
+
+        <div class = "commit hide float-right">
+        <a id = "cancel" class = "mr-3" href = "#">Cancel</a>
+        <a id = "commit" href = "#">Commit</a>
+        </div>
+
+        </div>
+    </div>
+
+	  <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm" role="document">
+	  <div class="modal-content">
+	  <div class="modal-header pt-1 pb-1">
+          <button type="button fade" class="close text-dark" data-dismiss="modal" aria-label="Close" disabled="true">
+            <h6 aria-hidden="true" class="ml-3">Error!</h6>
+          </button>
+	        <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p class = "pl-4">Entered php memory limit is same as existing one</p>
+	      </div>
+	      <div class="modal-footer pt-1 pb-1 pr-4">
+	        <a href="#" id = "mfooter" data-dismiss="modal">ok</a>
+	      </div>
+	    </div>
+	  </div>
+  	</div>
+
+    <select class="form-control col-4" id="SelectItem">
+      <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+      <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+      <option value="YYYY/MM/DD">YYYY/MM/DD</option>
+      <option value="YYYY/MM/DD HH:mm">YYYY/MM/DD HH:mm</option>
+      <option value="YYYY/MM/DD HH:mm:ss" selected>YYYY/MM/DD HH:mm:ss</option>
+    </select>
+        </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="extensions/editable/bootstrap-table-editable.js"></script>
+    <script type="text/javascript" src = "lib/moment/moment.min.js"></script>
+    <script>
+      console.log(moment());
+    </script>
+    </body>
+    <script type="text/javascript">
+
+    var indicator = 0;
+
+    //display time
+    // var countDownDate = new Date("March 28, 2020 15:37:25").getTime();
+    //timer
+    // var x = setInterval(function() {
+    //     var now = new Date().getTime();
+    //     var distance = countDownDate - now;
+    //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    //     document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    //     if (distance < 0) {
+    //         clearInterval(x);
+    //         document.getElementById("demo").innerHTML = "EXPIRED";
+    //     }
+    // }, 1000);
+
+   /* var mydata =
+    [
+        {
+            "Option": "Total memory",
+            "Value": "16026 MiB [16410124 KiB]",
+        },
+        {
+            "Option": "Free memory",
+            "Value": "13382 MiB [13703512 KiB]",
+        },
+    ];*/
+
+    // $(function () {
+    //       $.each(mydata, function(index, item){
+    //            tr = $('<tr/>');
+    //             tr.append('<td>' + item.id + '</td>');
+    //             tr.append('<td>' + item.name + '</td>');
+    //             tr.append('<td>' + item.price + '</td>');
+    //             $('#table').append(tr);
+    //       })
+    //   });
+    /*$(function(){
+        $.each(mydata, function(index, item){
+            tr = $("<tr/>");
+            tr.append($("<td>").text(item.id),
+                      $("<td>").text(item.name),
+                      $("<td>").text(item.price)
+                      );
+            $("table").append(tr);
+        })
+    })*/
+  /*  $(function(){
+      $.each(mydata, function(index, item){
+        var tr = $("<tr>");
+        tr.append($("<td>").text(item.Option),
+                  $("<td>").text(item.Value),
+                  );
+                  var tim = $(".table").append(tr);
+      })
+        var tr2 = "<tr><td>Configured PHP Memory Limit</td><td id = 'tdb'><input class = 'ltd' type='text' id='TempInput' disabled></td></tr>";
+        $(".table").append(tr2);*/
+      /*$(".table").append("<input type='text' value='' />").attr("id", "myfieldid")
+     .attr("name", "myfieldid");*/
+/*    });*/
+
+    /*
+  <td><input type="text" class="input-text w-100 border-0"
+                                id="ConfiguredPhpMemoryLimit" style="margin-left: -4px;" disabled>
+                        </td>*/
+  //color highlight
+
+    $(".modify > a").on("mouseover", function(){
+      $(this).css("color", "#5BFEC8")
+    });
+
+    $(".modify > a").on("mouseout", function(){
+      $(this).css("color", "")
+    });
+
+    $(".commit > a").on("mouseover", function(){
+      $(this).css("color", "#5BFEC8")
+    });
+
+    $(".commit > a").on("mouseout", function(){
+      $(this).css("color", "")
+    });
+
+ /*   $(".modify > a").on("click", function(){
+      $(".table td:last").css("border", "1px #5BFEC8 solid");
+    });*/
+
+     $("#edit").on("click", function(){
+      $("#tda").css("border-bottom", "none");
+      $("#tdb").css("border-right", "none");
+      $("#tdc").css("border", "1px solid #5BFEC8")
+      $(this).addClass("hide");
+      $(".commit").removeClass("hide");
+      $(".ltd").removeAttr("disabled");
+    });
+
+      var valu = $('#TempInput').val();
+      $("#cancel").on("click", function(){
+      $(".commit").addClass("hide");
+      $("#edit").removeClass("hide");
+      $(".ltd").css("border", "none");
+      $(".ltd").val(valu);
+      $(".ltd").attr("disabled", "true");
+      $("#tdc").css("border", "1px solid #ffffff")
+     });
+
+      //same input
+     $("#commit").on("click", function(){
+ 		 if ($('#TempInput').val() != valu) {
+            valu = $('#TempInput').val();
+            $(".ltd").attr("disabled", "true");
+            $(".ltd").css("border", "none");
+            $(".ltd").css("color", "rgba(255, 255, 255, 0.6)");
+            $(".commit").addClass("hide");
+            $("#edit").removeClass("hide");
+            $("#tdc").css("border", "1px solid #ffffff")
+        } else {
+           $('#exampleModal').modal({
+           backdrop: 'static',
+           keyboard: false
+       });
+
+        }
+     	//different input
+     //  $('input').bind('input', function(){
+    	// $("#commit").on("click", function(){
+    	// if($(this).val()){
+    	//    console.log(1);
+    	// }else{
+     //        $('#exampleModal').modal({
+     //        backdrop: 'static',
+     //        keyboard: false
+     //      })
+    	// $("#commit").attr("data-toggle", "mdal");
+    	// $("#commit").attr("data-target", "#exampleModal");
+    	// }
+    	// })
+    	// })
+	 // $('.ltd').bind('input propertychange', function(event){
+		//  if($(this).val()=="1"){
+		// 	$(".ltd").attr("disabled", "true");
+		//  }else{
+		// 	alert("same");
+		//  }
+
+		// });
+     });
+
+
+
+
+
+     // $(".btndrop").css("background-color", "#5D6D7E");
+     // $(".item1").on("click", function(){
+     // m = moment.parseZone(d).format('DD/MM/YYYY');
+     // $("#displaytime").html(m);
+     // })
+
+     // $(".btndrop").css("background-color", "#5D6D7E");
+     // $(".item2").on("click", function(){
+     //  function updateTime(){
+     //    var ctime = moment.parseZone(d).format('MM/DD/YYYY');
+     //    $('#displaytime').html(ctime);
+     //    };
+     //    updateTime();
+     //    setInterval(function(){
+     //       updateTime();
+     //    },1000);
+     // })
+
+     // $(".btndrop").css("background-color", "#5D6D7E");
+     // $(".item3").on("click", function(){
+     // m = moment.parseZone(d).format('YYYY/MM/DD');
+     // $("#displaytime").html(m);
+     // })
+
+
+
+     /* //function display_c(){
+    var refresh=1000; // Refresh rate in milli seconds
+    mytime=setTimeout('display_ct()',refresh)
+    }
+
+    function display_ct() {
+    var d = new Date()
+    document.getElementById('displaytime').innerHTML = d;
+    display_c();
+    }
+
+    $("body").load(display_ct());*/
+
+
+
+
+      /*var interval = setInterval(function() {
+      var momentNow = moment();
+      $('#displaytime').html(momentNow.format($('#SelectItem').val()))
+      },100);*/
+
+     var intv = setInterval(function(){
+     $("#displaytime").html(moment().format($("#SelectItem").val()))
+     }, 100);
+     $('#SelectItem').css("margin-left", "15.5%");
+   /*  var d = new Date();
+     $("#displaytime").html(d);
+     $("#SelectItem").on("change", function (){
+     $("#displaytime").html(
+      moment().format($(this).val())
+      );
+     })*/
+     var d = new Date();
+     console.log(typeof(d));
+     console.log(typeof(moment(d)));
+
+
+
+     /*m = moment(d, "DD/MM/YYYY");*/
+
+</script>
+
+</html>
